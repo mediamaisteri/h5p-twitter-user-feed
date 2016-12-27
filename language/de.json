@@ -8,8 +8,7 @@
       "label": "Antworten anzeigen"
     },
     {
-      "label": "Anzahl der Tweets",
-      "default": 5
+      "label": "Anzahl der Tweets"
     }
   ]
 }
