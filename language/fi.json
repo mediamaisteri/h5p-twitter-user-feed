@@ -1,0 +1,14 @@
+{
+  "semantics": [
+    {
+      "label": "Twitter käyttäjänimi",
+      "description": "Käyttäjä keneltä haetaan tweetit"
+    },
+    {
+      "label": "Näytä vastaukset"
+    },
+    {
+      "label": "Tweettien määrä"
+    }
+  ]
+}
