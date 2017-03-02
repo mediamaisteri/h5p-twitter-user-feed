@@ -5,7 +5,7 @@
   "minorVersion": 0,
   "patchVersion": 7,
   "runnable": 1,
-  "author": "Svein-Tore Griff With",
+  "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.TwitterUserFeed",
   "preloadedJs": [
