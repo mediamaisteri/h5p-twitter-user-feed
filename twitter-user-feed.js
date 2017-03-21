@@ -1,6 +1,7 @@
 var H5P = H5P || {};
 
 H5P.TwitterUserFeed = (function ($) {
+  H5P.EventDispatcher.call(this);
   /**
    * Constructor function.
    */
@@ -22,7 +23,14 @@ H5P.TwitterUserFeed = (function ($) {
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
+    var self = this;
     this.setUpTwitter();
+
+    // notify that twitter feed has been loaded
+    twttr.ready(function (twttr) {
+        twttr.events.bind('loaded', function () { self.trigger('loaded'); });
+      }
+    );
 
     // Set class on container to identify twitter user feed
     $container.addClass("h5p-twitter-user-feed");
