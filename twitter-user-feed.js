@@ -70,7 +70,7 @@ H5P.TwitterUserFeed = (function ($) {
   };
 
   // Inheritance
-  C.prototype = Object.create(EventDispatcher.prototype);
+  C.prototype = Object.create(H5P.EventDispatcher.prototype);
   C.prototype.constructor = C;
   
   return C;
