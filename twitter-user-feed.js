@@ -69,6 +69,10 @@ H5P.TwitterUserFeed = (function ($) {
     }(document, "script", "twitter-wjs"));
   };
 
+  // Inheritance
+  C.prototype = Object.create(EventDispatcher.prototype);
+  C.prototype.constructor = C;
+  
   return C;
 })(H5P.jQuery);
 
