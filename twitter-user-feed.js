@@ -1,11 +1,13 @@
 var H5P = H5P || {};
 
 H5P.TwitterUserFeed = (function ($) {
-  H5P.EventDispatcher.call(this);
+
   /**
    * Constructor function.
    */
   function C(options, id) {
+    H5P.EventDispatcher.call(this);
+
     // Extend defaults with provided options
     this.options = $.extend(true, {}, {
       userName: 'H5PTechnology',
@@ -15,6 +17,10 @@ H5P.TwitterUserFeed = (function ($) {
     // Keep provided id.
     this.id = id;
   }
+
+  // Inheritance
+  C.prototype = Object.create(H5P.EventDispatcher.prototype);
+  C.prototype.constructor = C;
 
   /**
    * Attach function called by H5P framework to insert H5P content into
@@ -69,10 +75,8 @@ H5P.TwitterUserFeed = (function ($) {
     }(document, "script", "twitter-wjs"));
   };
 
-  // Inheritance
-  C.prototype = Object.create(H5P.EventDispatcher.prototype);
-  C.prototype.constructor = C;
-  
+
+
   return C;
 })(H5P.jQuery);
 
