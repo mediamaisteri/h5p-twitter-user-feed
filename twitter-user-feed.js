@@ -54,30 +54,31 @@ H5P.TwitterUserFeed = (function ($) {
   };
 
   C.prototype.setUpTwitter = function() {
-    if (H5P.TwitterUserFeed.twitterSetUp) {
-      return;
+    if (window.twttr) {
+      return; // Already set up
     }
-    H5P.TwitterUserFeed.twitterSetUp = true;
-    window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
+
+    // Load widgets api if not already done
+    var id = 'twitter-wjs';
+    if (!document.getElementById(id)) {
+      // Create script tag
+      var js = document.createElement('script');
       js.id = id;
       js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
 
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
-      };
-      return t;
-    }(document, "script", "twitter-wjs"));
+      // Insert before first head JS
+      var firstJS = document.getElementsByTagName('script')[0];
+      firstJS.parentNode.insertBefore(js, firstJS);
+    }
+
+    // Create twttr object used by script
+    window.twttr = {
+      _e: [],
+      ready: function (callback) {
+        window.twttr._e.push(callback);
+      }
+    };
   };
-
-
 
   return C;
 })(H5P.jQuery);
-
-H5P.TwitterUserFeed.twitterSetUp = false;
