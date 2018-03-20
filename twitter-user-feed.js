@@ -34,7 +34,11 @@ H5P.TwitterUserFeed = (function ($) {
 
     // notify that twitter feed has been loaded
     twttr.ready(function (twttr) {
-        twttr.events.bind('loaded', function () { self.trigger('loaded'); });
+        twttr.events.bind('loaded', function () {
+          self.trigger('loaded');
+          // trigger resize event once twitter feed has been loaded
+          self.trigger('resize');
+        });
       }
     );
 
